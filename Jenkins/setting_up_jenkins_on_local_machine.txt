@@ -1,0 +1,52 @@
+/*
+@author: Arun Dhwaj
+@date: 26th Jul, 2018,
+@purpose: Setting up jenkins on local machine
+*/
+
+//////////////////////////////////////
+1) What is Jenkins ?
+
+Its an continuous integration and continous delivery tool.
+Its developed in java, its its platform independent, i,e can run on any platorm.
+
+//////////////////////////////////////
+2) How toi set up locally it on MAC
+
+Follow the followings steps:
+
+Step-1: Download jenkins from the official site:
+
+https://jenkins.io/
+
+choose the "Generic Java package (.war)" from the options and download it on your local machine.
+
+Step-2: Open the terminal and go to the location where you have downloaded it.
+
+2.1) Running
+**** **** **** **** **** **** 
+Run $ java -jar jenkins.war
+**** **** **** **** **** **** 
+
+It will create the admin user and password. Which are also stored at the location  
+password_path: "/Users/<MacUserName>/.jenkins/secret.key"
+ 
+2.2) On system it store info on the location /Users/<UserName>/.jenkins
+
+2.3) Open the jenkins on browser on port 8080
+
+It will ask for the password. Enter the password. 
+
+2.4) You may find the issues: “This Jenkins instance appears to be offline” 
+
+See the solution here:
+
+On MacOS: 10.11.6
+i) Go to /Users//.jenkins
+ii) Open the file: hudson.model.UpdateCenter.xml
+iii) Change the value of "default" from "https://xxx" to "http://xxx"
+
+
+
+
+
