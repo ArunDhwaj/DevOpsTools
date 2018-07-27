@@ -1,0 +1,48 @@
+/*
+@author: Arun Dhwaj
+@date: 27th Jul, 2018,
+@purpose: Setting up jenkins on Tomcat
+*/
+
+//////////////////////////////////////
+1) How to set up jenkins on Tomcat
+
+Follow the followings steps:
+
+Step-1: Download Tomcat from the official site:
+
+https://tomcat.apache.org/download-70.cgi
+
+Choose the "Binary Distributions" -> "Core" -> "zip" from the options and download it on your local machine.
+
+
+Step-2: Open the terminal and go to the location where you have downloaded it, and unzip it.
+
+2.1) Go to Folder "webapps" inside the tomcat, you have downloaded.
+
+2.2) Copy the jenkins.war and copy into 'webapps' folder.
+
+
+Step-3: Open the terminal: Go to the "tomcat/bin" directory.
+
+Step-4: Make all the x.sh file executable, using the command
+$ chmod +x *.sh 
+
+Step-5: Start the tomcat using the command
+$ ./startup.sh 
+
+Step-6: Go the lcation:  http://localhost:8080
+
+You see the Tomcat Home Page.
+
+Step-7: Open the jenkins:  http://localhost:8080/jenkins/
+
+Step-8: Open the Jenkins( Standalone ) also. Run it on the different port.
+
+Go to the jenkins folder, where jenkins.war is located, and run the command
+
+$ java -jar jenkins.war --httpPort=9090
+
+It will open jenkins at http://localhost:9090
+
+
