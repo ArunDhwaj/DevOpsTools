@@ -41,8 +41,8 @@ Step-8: Open the Jenkins( Standalone ) also. Run it on the different port.
 
 Go to the jenkins folder, where jenkins.war is located, and run the command
 
-$ java -jar jenkins.war --httpPort=9090
+$ java -jar jenkins.war --httpPort=8282
 
-It will open jenkins at http://localhost:9090
+It will open jenkins at http://localhost:8282
 
 
