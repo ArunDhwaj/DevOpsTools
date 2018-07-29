@@ -1,0 +1,181 @@
+/**
+@author: Arun Dhwaj
+@date: 29th Jul, 2018
+@purpose: Jenkins Quiz
+**/
+ 
+Ten Jenkins quiz questions
+This Jenkins quiz focuses largely on the installation and configuration of the popular continuous integration (CI) tool, but we're also going to ask some Jenkins questions 
+that hit on the history and branding of the tool as well. But if you know how to get your installation up and running, this Jenkins quiz should be as simple as a lead-pipe 
+cinch.
+
+My SCORE: 9 out of 10 - Read the answers to the quiz below.
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+QUESTION 1: Which of the following commands runs Jenkins from the command line?
+
+java -jar jenkins.war
+java -war jenkins.jar
+java -jar jenkins.jar
+java -war jenkins.war
+
+YOUR ANSWER - java -jar jenkins.war
+
+MORE INFORMATION:
+
+The proper syntax for running the stand-alone Jenkins application is java -jar jenkins.war. This will start an embedded Jetty servlet engine, which hosts the Jenkins 
+application. When you use the jenkins.war file, you'll need the http://localhost:8080 URL to access Jenkins. This differs from the http://localhost:8080/jenkins URL you'd 
+use if you're deploying Jenkins to Tomcat or WildFly servers.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+QUESTION 2: Jenkins is a fork of what other CI tool?
+
+Hudson
+Git
+Concourse
+Maven
+
+YOUR ANSWER - Hudson
+
+MORE INFORMATION:
+
+When Oracle started registering copyright notices on the Hudson name and began talking about a commercial version, the open source community created a fork of Hudson and 
+named it Jenkins. There might be a bit of squabbling in the community over this Jenkins quiz question, though. Some say Jenkins wasn't a fork of Hudson, just a copy. Others 
+say Hudson was the fork, because all of the major contributors moved directly to Jenkins. But, semantics aside, Jenkins has its roots in Hudson.
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+QUESTION 3: Which version of the Java Development Kit (JDK) is required to run the latest version of Jenkins (since Jenkins 2.54)?
+
+1.5
+1.8
+9
+18.3
+
+YOUR ANSWER - 1.8
+
+MORE INFORMATION:
+
+Since version 2.54, a JDK 1.8 install is the minimum requirement for Jenkins to run. Jenkins will also run with Java 9 and the Java 18.3 runtime.
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+QUESTION 4: Who is credited with the creation of Jenkins?
+
+Linus Torvalds
+Junio Hamano
+Kohsuke Kawaguchi
+James Gosling
+
+YOUR ANSWER - Kohsuke Kawaguchi
+
+MORE INFORMATION:
+
+The creation of Jenkins is attributed to Koshsuke Kawaguchi, affectionately known as KK. Linus Torvalds invented Linux. James Gosling gets credit for inventing Java, 
+and Junio Hamano has maintained Git since 2005.
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+QUESTION 5: Which source code management plug-in does Jenkins install by default?
+
+Git
+Subversion
+Concurrent Versions System
+None
+
+YOUR ANSWER - Git
+
+CORRECT ANSWER - None 
+MORE INFORMATION:
+
+This is a bit of a Jenkins trick question. The correct answer is none. While pulling from a source code repository such as Subversion or GitHub is a key feature of any 
+CI/CD tool, Jenkins doesn't actually install any version control plug-ins by default.
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+QUESTION 6: Which environment variable do you optionally use to specify the folder in which Jenkins configuration and runtime data is contained?
+
+JENKINS_ROOT
+M2_HOME
+JENKINS_HOME
+JAVA_HOME
+
+YOUR ANSWER - JENKINS_HOME
+
+MORE INFORMATION:
+
+The optional JENKINS_HOME can be configured as either a system- or user-level variable in the host OS. By default, Jenkins configuration and runtime data is stored in a 
+subfolder named .jenkins within the user's home directory, but it will use the location specified by the JENKINS_HOME variable instead if the configuration exists.
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+QUESTION 7: During installation, the wizard recommends a set of Jenkins plug-ins. Which of the following Jenkins plug-ins is not recommended?
+
+Maven
+Git
+Gradle
+Ant
+
+YOUR ANSWER - Maven
+
+MORE INFORMATION:
+
+The installation wizard suggests a variety of Jenkins plug-ins, but the Jenkins Maven plug-in is not on the list. Given the prominence of Maven in the Java community, the 
+exclusion of Maven seems curious, especially given that Ant, which is slowly losing its market share, is. Fortunately, it's relatively easy to install the Jenkins Maven 
+integration plug-in, so Maven users should not be discouraged by its exclusion.
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+QUESTION 8: What embedded runtime does the stand-alone Jenkins application use?
+
+Tomcat
+WebSphere Liberty
+WildFly
+Jetty
+
+YOUR ANSWER - Jetty
+
+MORE INFORMATION:
+
+While an embedded Tomcat server may be the preferred deployment target for Spring Boot projects, Jenkins prefers to embed Jetty. Of course, that doesn't mean Jenkins is 
+bound to Jetty. While Jenkins comes with an embedded Jetty servlet engine, Jenkins itself can be deployed to any application server that supports the Jakarta EE web profile.
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+QUESTION 9: What is the profession of the Jenkins mascot?
+
+Driver
+Butler
+Groundskeeper
+Chef
+
+YOUR ANSWER - Butler
+
+MORE INFORMATION:
+
+The mascot for both the Jenkins and Maven CI tools is a butler. Cambridge Dictionary defines a butler as "the most important servant in the house, usually responsible for 
+organizing other servants." So, a butler is a fitting choice, as not only is Jenkins there to serve you, but it is also there to orchestrate all of the other resources, such 
+as Maven, Git, Gradle and SonarQube, that you need as part of a comprehensive CI pipeline.
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+QUESTION 10: When you install Jenkins without any plug-ins configured, what is the only type of Jenkins build job you can create?
+
+Maven project
+Pipeline project
+Freestyle project
+Multiconfiguration project
+
+YOUR ANSWER - Freestyle project
+
+MORE INFORMATION:
+
+A Jenkins freestyle project provides few build facilities other than manipulating Jenkins environment variables and running shell scripts. You need to install the Maven and 
+Pipeline plug-ins to create a Maven and Pipeline project. The Muliticonfiguration project becomes available after installing the Jenkins Git plug-in.
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*************************************************************************** ***********************************************************************
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
