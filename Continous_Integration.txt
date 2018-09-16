@@ -1,0 +1,49 @@
+
+Continuous Integration – strategies for branching and merging
+==============================================================
+
+
+Why do we branch our code in a first place? 
+===========================================
+The main purpose of the branches is to facilitate parallel development: the ability to work on two or more work stream without affecting others. Another frequent reason is functional – branches are created for new features, bug fixes, spikes, releases etc. But branching has it’s own cost. Let think about it. In most cases, where you branch, your entire codebase is evolving completely separately from other branches – including source code files, configuration, database scripts and so on. Each branch completely independent. Hovever, at some point, you need to take the changes in the branch and apply them to other branches. Modern version control tools (svn, git) make merging unconflicting chages realtivey easy to merge. The problem arise when conflicting changes has been made in branches that you are trying to merge. Version control system detect those conflict and warn you. It is impossible to merge such changes without knowing what the author intend was – so conversations have to happens, sometimes weeks after code was written.
+The longer you live things before merging branches, the more unpleasant your merge is going to be.
+
+Continuous Integration.
+If different members of the team are working on separate branches, then by definition, they not participating in continuous integration process. Perhaps the most important practice that makes continuous integration possible is that everybody checkin into mainline as often as possible, at least once a day. It’s not uncommon to see continuous integration basically ignored and people branch indiscriminately, leading to release process that involves many branches. Because branches stays independently for a long time, when people trying to merge them they tend to break and application is undeployable. Keeping track of branches, working out what merge and when and performing this merges consume significant resources and when it’s done the team still has to make code into deployable state – the same problem continuous integration is supposed to solve.
+
+Can we not to branch?
+One may be wondering, how to work on the same codebase without affecting other people. Granted, this requires more discipline and creativity than to just create a branch. It may require use of feature flags, branching by abstraction, iterative development to name a few. But it significantly reduces the risk of changes breaking the application and save you and your team a grest deal of merging, fixing breakage, merge issues and getting application into deployable state. At the end this activity are more costly that more disciplined practice of working on the mainline.
+Lets look at various pattern for branching and merging, their advantages and disadvantages:
+
+1. Working on mainline.
+This is extremely effective way of developing and in fact, the only way to enable continuous integration. In this pattern, developers are almost always check in to mainline.
+Developers works on mainline and check in code at least once day. When faced with the big or complex changes, like refactoring, developing new functionality, making farreching capacity improvements – branches are not created by default. Instead, changes are planned and implemented in little, incremental steps to keep tests passing and do not break existing functionality. Branches used very rarely and only when branch are not planned to be merged back into mainline. For example, branches are created when doing a release. Or when somebody wants to experiment. Working without branches may lead to some period of instability or a broken build, but usually for a very short period of time but you get rock solid release out of the door. Another advantage, developers get rapid feedback from integrated application, knowing the status of the application – you don’t have to wait until the integration phase to discover problems.
+Benefits:
+
+All code is continuously integrated.
+Tests run againsts integrated codebase
+Developers pick each other changes immediaty
+Avoiding “merge hell” at the end of the project
+Instant feedback about application status
+Disadvantages:
+
+Breaks on integration branch will happen more often, and developer who introduce the change will be holding the whole team
+More upfront work and discipline required to do checkins at least daily
+The “commit early, commit often” policy may negatively impact team productivity and developer reputation if build is broken
+No cherry‐picking features based on branch is possible in the deliverable product. More work need to be done to implement feature toggle, which some considered as a hack
+Committing unfinished work without breaking the build feels counterintuitive and require more design decision
+To make sure that developers did not broke the build, he may decided to get changes from the trunk and run tests locally, instead of dedicated CI server
+So there are some tradeoff.
+
+2. Branch for Release
+This is acceptable practice when branch is created a shortly before release. Once branch is created, testing and validation is done from the code on the branch, while new development performed at mainline. This replaced practice of code freeze, and release branch are maintained for bugfixes only. It is important to remember to merge bugfixes back into mainline as soon as possible. This strategy allow qa and ops team to work on release branch as well as fixing bugs without affecting developing of the new functionality.
+
+3. Branch by feature
+In this pattern every story is developed on separate branch. This pattern created by desire to keep trunk always in releasable state. You develop stories on the branch without interfering with other people work. Only when story is accepted by testers, in merged back into mainline.
+This pattern works fairly well for open source projects, but in corporate world really work smoothly under time pressure and resource constraints. Branching by feature in opposite to continuous integration and it makes sense only for open source projects or for small team of very experienced developers working with DVCS (git) .
+
+Take away from this is that Continuous Integration requires that every change be committed to the trunk as soon as possible and at least daily. The trunk is always most complete and up-to-date statement of the system because you will deploy from it. The longer change stay separate from the trunk the more risk that there will be problem after the merge.
+The only reason to branch should be for releases, spiking and maybe some extreme cases, when there is no other options.
+
+
+References: http://eugenedvorkin.com/continuous-integration-strategies-for-branching-and-merging/
