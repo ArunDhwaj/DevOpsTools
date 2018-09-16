@@ -1,0 +1,19 @@
+
+Docker
+=======
+
+1) Scheduling Continer: Important points 
+=========================================
+
+1.1) They must be used together with Orchestration containers.
+
+1.2) They can handle failures by doing automatic fail-overs.
+
+1.3) Host selection is one of the most important responsibilities of container schedulers.
+
+1.4) Docker Swarm, Apache Mesos, Kubernetes and Fleet have popular scheduler implementations.
+
+
+https://medium.com/@ArmandGrillet/comparison-of-container-schedulers-c427f4f7421
+
+
